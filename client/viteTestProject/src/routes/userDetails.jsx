@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserNotFound from './userNotFound.jsx';
@@ -20,5 +20,13 @@ export default function UserDetails () {
         fetchAPI();
     }, []);
 
-    return (id > 0 && id <= 50) ? <div>UserId: {id}</div> : <UserNotFound/>;
+    const isIdValid = (id > 0 && id <= 50) ? true : false;
+
+    return (isIdValid) ? (
+        <>
+            <Link to={'/users'} >Users</Link>
+            <div>UserId: {id}</div>
+        </>
+        )
+        : <UserNotFound/>;
 }

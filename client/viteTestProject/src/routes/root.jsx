@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
+
 
 export default function Root() {
     return (
       <>
         <div>
-          You are in the Root folder
-          Please navigate to /users and /:id to serve the backend data
+          <Link to={'/users'}>Click here to go to the Users Application</Link>
         </div>
       </>
     );
