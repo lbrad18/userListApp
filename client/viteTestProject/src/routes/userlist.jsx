@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import UserNotFound from './userNotFound.jsx';
 import LoadingSpinner from './LoadingSpinner.jsx';
 
@@ -24,14 +24,21 @@ export default function UserList() {
   }, []);
 
     return (
-        <div>
-          {isDataLoading ? <LoadingSpinner/> : users.map((user) => (
-            <div  key={user.id} className="flex flex-col gap-2">
-              <Link   to={`/users/${user.id}`} >
-                {user.first_name} {user.last_name}
-              </Link>
-            </div>
-          ))}
+        <div className='userDetails'>
+          <div>
+            {isDataLoading ? <LoadingSpinner/> : users.map((user) => (
+              <div>
+                  <Link  
+                    key={user.id}
+                    to={`/users/${user.id}`}
+                  >
+                    {user.first_name} {user.last_name}
+                  </Link>
+              </div>
+              ))}
+          </div>
+          <Outlet/>
+        
         </div>
     );
   }
