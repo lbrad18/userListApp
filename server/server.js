@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('./users.json');
 const app = express();
 const cors = require('cors');
-const CLIENT_PORT = 5174;
+const CLIENT_PORT = 5176;
 const SERVER_PORT = 8080;
 const corsOptions = {
     origin: [`http://localhost:${CLIENT_PORT}`],

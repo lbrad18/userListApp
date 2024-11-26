@@ -27,9 +27,9 @@ export default function UserList() {
         <div className='userDetails'>
           <div>
             {isDataLoading ? <LoadingSpinner/> : users.map((user) => (
-              <div>
+              <div key={user.id}>
                   <Link  
-                    key={user.id}
+                    // key={user.id}
                     to={`/users/${user.id}`}
                   >
                     {user.first_name} {user.last_name}
